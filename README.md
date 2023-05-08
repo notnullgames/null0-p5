@@ -22,8 +22,8 @@ null0 draw.null0
 
 ```
 # get this repo and it's submodules
-git clone --recursive git@github.com:notnullgames/null0-pixie.git
-cd null0-pixie
+git clone --recursive git@github.com:notnullgames/null0-p5.git
+cd null0-p5
 
 # compile draw cart
 nimble cart drawing
