@@ -7,7 +7,12 @@ Initially, I will make a native runtime, but the plan is also a web & retroarch 
 
 ## Usage
 
-Get the [release](https://github.com/notnullgames/null0-p5/releases) for your platform and run it like this:
+Get the nightly-release for your platform:
+
+- [MacOS](https://nightly.link/notnullgames/null0-p5/workflows/build/main/null0-macOS.zip)
+- [Linux](https://nightly.link/notnullgames/null0-p5/workflows/build/main/null0-ubuntu.zip)
+
+Run it like this:
 
 ```
 null0 draw.null0
