@@ -12,6 +12,8 @@ when defined(linux):
 when defined(windows):
   {.compile: "vendor/gamepad/source/gamepad/Gamepad_windows_dinput.c".}
   {.compile: "vendor/gamepad/source/gamepad/Gamepad_windows_mm.c".}
+  {.passC: "-DFREEGLUT_STATIC -I C:/MinGW/dx9/include".}
+  {.passL: "C:/MinGW/dx9/lib/x64/Xinput.lib C:/MinGW/dx9/lib/x64/dinput8.lib C:/MinGW/dx9/lib/x64/dxguid.lib C:/MinGW/WinSDK/Lib/x64/WbemUuid.Lib C:/MinGW/WinSDK/Lib/x64/Ole32.Lib C:/MinGW/WinSDK/Lib/x64/OleAut32.Lib".}
 
 type
   Gamepad_device* {.bycopy.} = object
