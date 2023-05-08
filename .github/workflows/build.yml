@@ -9,8 +9,8 @@ jobs:
     strategy:
       matrix:
         os:
+          # - windows
           - ubuntu
-          - windows
           - macOS
     
     steps:
@@ -31,5 +31,5 @@ jobs:
           name: null0-${{ matrix.os }}
           path: |
             null0
-            *.zip
             null0.exe
+            *.null0
