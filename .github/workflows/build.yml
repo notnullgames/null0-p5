@@ -1,0 +1,27 @@
+name: build
+
+on:
+  push
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}-latest
+    strategy:
+      matrix:
+        os:
+          - ubuntu
+          - windows
+          - macOS
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup nim
+        uses: jiro4989/setup-nim-action@v1
+      - run: nimble build -Y
+      - name: Package
+        uses: actions/upload-artifact@v3
+        with:
+          name: null0-${{ matrix.os }}
+          path: |
+            null0
+            *.zip
+            null0.exe
