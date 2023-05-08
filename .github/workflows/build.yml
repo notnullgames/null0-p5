@@ -12,11 +12,19 @@ jobs:
           - ubuntu
           - windows
           - macOS
+    
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup nim
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      
+      - name: Setup
         uses: jiro4989/setup-nim-action@v1
-      - run: nimble build -Y
+      
+      - name: Build
+        run: nimble build -Y
+      
       - name: Package
         uses: actions/upload-artifact@v3
         with:
