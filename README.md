@@ -26,11 +26,13 @@ git clone --recursive git@github.com:notnullgames/null0-pixie.git
 cd null0-pixie
 
 # compile draw cart
-nimble cart draw
+nimble cart drawing
 
 # compile justlog cart
 nimble cart justlog
 
 # build runtime, then run it on draw.null0
-nimble run -- draw.null0
+nimble run -- drawing.null0
 ```
+
+You can see all the available carts in [carts](carts/).

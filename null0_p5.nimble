@@ -26,6 +26,6 @@ task clean, "Cleans up files":
 
 task cart, "Build a demo cart":
   let name = paramStr(paramCount())
-  let dir = "src/carts/" & name
-  exec(fmt"cd {dir} && nim c main.nim && zip ../../../{name}.null0 -r main.wasm assets/ -x '*.DS_Store' && mv main.wasm ../../../{name}.wasm")
+  let dir = "carts/" & name
+  exec(fmt"cd {dir} && nim c main.nim && zip ../../{name}.null0 -r main.wasm assets/ -x '*.DS_Store' && mv main.wasm ../../{name}.wasm")
 

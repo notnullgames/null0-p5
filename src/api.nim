@@ -22,7 +22,6 @@ var null0_export_unload:PFunction
 var null0_export_buttonDown:PFunction
 var null0_export_buttonUp:PFunction
 
-
 type Button* {.pure.} = enum
   BUTTON_B = 0,
   BUTTON_Y = 1,
@@ -120,6 +119,7 @@ proc null0_update*() =
   if null0_export_update != nil:
     null0_export_update.call(void, null0_frame)
   inc null0_frame
+  bxy.drawImage("screen", rect = rect(vec2(0, 0), windowSize.vec2))
 
 proc null0_buttonUp*(button: Button, device:int) =
   if current_debug:
