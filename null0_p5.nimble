@@ -14,6 +14,7 @@ requires "windy >= 0.0.0"
 requires "opengl >= 1.2.7"
 requires "https://github.com/beef331/wasm3 >= 0.1.7"
 requires "docopt >= 0.7.0"
+requires "gamepad >= 0.0.12"
 
 import std/os
 import std/strutils

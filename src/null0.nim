@@ -7,7 +7,7 @@ import docopt
 import std/tables
 
 import ./api
-import ./gamepad
+import gamepad
 
 const doc = """
 null0 - Runtime for null0 game-engine
@@ -53,25 +53,25 @@ var buttonMap = {
 }.toTable
 
 
-proc onGamepadAttached(device: ptr Gamepad_device; context: pointer) =
+proc onGamepadAttached(device: ptr Gamepad_device; context: pointer) {.cdecl.} =
   var js = device[]
   echo "attached: " & $js.deviceID
 
-proc onGamepadRemoved(device: ptr Gamepad_device; context: pointer) =
+proc onGamepadRemoved(device: ptr Gamepad_device; context: pointer) {.cdecl.} =
   var js = device[]
   echo "removed: " & $js.deviceID
 
-proc onButtonDown (device: ptr Gamepad_device; buttonID: cuint; timestamp: cdouble; context: pointer) =
+proc onButtonDown (device: ptr Gamepad_device; buttonID: cuint; timestamp: cdouble; context: pointer) {.cdecl.} =
   var js = device[]
   if buttonMap.hasKey(buttonID):
     null0_buttonDown(buttonMap[buttonID], int js.deviceID)
 
-proc onButtonUp (device: ptr Gamepad_device; buttonID: cuint; timestamp: cdouble; context: pointer) =
+proc onButtonUp (device: ptr Gamepad_device; buttonID: cuint; timestamp: cdouble; context: pointer) {.cdecl.} =
   var js = device[]
   if buttonMap.hasKey(buttonID):
     null0_buttonUp(buttonMap[buttonID], int js.deviceID)
 
-proc onAxisMoved (device: ptr Gamepad_device; axisID: cuint; value: cfloat; lastValue: cfloat; timestamp: cdouble; context: pointer) =
+proc onAxisMoved (device: ptr Gamepad_device; axisID: cuint; value: cfloat; lastValue: cfloat; timestamp: cdouble; context: pointer) {.cdecl.} =
   var js = device[]
   if axisID == 0:
     if value < -0.5:
